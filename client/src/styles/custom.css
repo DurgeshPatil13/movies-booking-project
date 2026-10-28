@@ -1,0 +1,323 @@
+/* ===================================================
+   IMOVIES - PREMIUM CINEMA STYLESHEET
+   =================================================== */
+
+:root {
+  --im-primary: #e50914;
+  --im-primary-hover: #c40812;
+  --im-accent: #f59e0b;
+  --im-dark-bg: #0b0c10;
+  --im-card-bg: #14161f;
+  --im-card-border: #232738;
+  --im-text-primary: #f8fafc;
+  --im-text-secondary: #94a3b8;
+  --im-seat-available: #334155;
+  --im-seat-selected: #e50914;
+  --im-seat-booked: #1e293b;
+  --im-seat-vip: #8b5cf6;
+  --im-seat-premium: #3b82f6;
+}
+
+body {
+  background-color: var(--im-dark-bg);
+  color: var(--im-text-primary);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* Headings */
+h1, h2, h3, .font-heading {
+  font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Custom Cinema Navbar */
+.cinema-navbar {
+  background: rgba(11, 12, 16, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--im-card-border);
+}
+
+.brand-text {
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #ffffff 0%, #e50914 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hero Section */
+.hero-banner {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  min-height: 480px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11, 12, 16, 0.2) 0%, rgba(11, 12, 16, 0.95) 90%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 3rem 2.5rem;
+  max-width: 750px;
+}
+
+/* Movie Cards */
+.movie-card {
+  background: var(--im-card-bg);
+  border: 1px solid var(--im-card-border);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(229, 9, 20, 0.5);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+}
+
+.movie-poster-wrap {
+  position: relative;
+  padding-top: 145%;
+  background: #1f2430;
+  overflow: hidden;
+}
+
+.movie-poster-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.movie-card:hover .movie-poster-img {
+  transform: scale(1.04);
+}
+
+.rating-badge {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fbbf24;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.82rem;
+}
+
+/* Cinema Curved Screen Component */
+.cinema-screen-container {
+  perspective: 600px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.cinema-screen {
+  width: 80%;
+  max-width: 580px;
+  height: 14px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, #e50914, #ffffff, #e50914, transparent);
+  border-radius: 50% 50% 0 0;
+  box-shadow: 0 10px 30px rgba(229, 9, 20, 0.4);
+  transform: rotateX(-30deg);
+}
+
+.cinema-screen-text {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--im-text-secondary);
+  margin-top: 0.8rem;
+}
+
+/* Seating Grid */
+.seat-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.row-label {
+  width: 24px;
+  font-weight: 700;
+  color: var(--im-text-secondary);
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.seat-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px 8px 4px 4px;
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+}
+
+.seat-btn:hover:not(.seat-booked) {
+  transform: scale(1.15);
+  z-index: 2;
+}
+
+.seat-available {
+  background: var(--im-seat-available);
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.seat-available:hover {
+  background: #475569;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.seat-selected {
+  background: var(--im-seat-selected) !important;
+  color: #ffffff !important;
+  border: 1px solid #ff4d5a !important;
+  box-shadow: 0 0 12px rgba(229, 9, 20, 0.7);
+  transform: scale(1.08);
+}
+
+.seat-booked {
+  background: var(--im-seat-booked);
+  color: #475569;
+  border: 1px solid #1e293b;
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+/* VIP Seat special badge */
+.seat-vip {
+  border-top: 2px solid #a855f7;
+}
+
+.seat-premium {
+  border-top: 2px solid #38bdf8;
+}
+
+/* Ticket Stub Style (Checkout & Confirmation) */
+.ticket-stub {
+  background: #141620;
+  border: 1px dashed var(--im-card-border);
+  border-radius: 1.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.ticket-stub::before, .ticket-stub::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  background-color: var(--im-dark-bg);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.ticket-stub::before {
+  left: -12px;
+}
+
+.ticket-stub::after {
+  right: -12px;
+}
+
+/* Demo Notice Banner */
+.demo-banner {
+  background: rgba(229, 9, 20, 0.12);
+  border: 1px solid rgba(229, 9, 20, 0.35);
+  border-radius: 0.75rem;
+  color: #fca5a5;
+  font-size: 0.875rem;
+}
+
+/* Badges and Buttons */
+.btn-primary-imovies {
+  background-color: var(--im-primary);
+  border-color: var(--im-primary);
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 0.6rem;
+  padding: 0.6rem 1.4rem;
+  transition: all 0.2s ease;
+}
+
+.btn-primary-imovies:hover {
+  background-color: var(--im-primary-hover);
+  border-color: var(--im-primary-hover);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(229, 9, 20, 0.35);
+}
+
+.btn-outline-imovies {
+  border: 1px solid var(--im-card-border);
+  background: transparent;
+  color: var(--im-text-primary);
+  border-radius: 0.6rem;
+  transition: all 0.2s ease;
+}
+
+.btn-outline-imovies:hover, .btn-outline-imovies.active {
+  border-color: var(--im-primary);
+  color: #ffffff;
+  background: rgba(229, 9, 20, 0.15);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0c10;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #252a3b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3b435e;
+}

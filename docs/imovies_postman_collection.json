@@ -1,0 +1,198 @@
+{
+  "info": {
+    "_postman_id": "imovies-api-collection-2025",
+    "name": "IMovies API Collection",
+    "description": "Postman collection for testing IMovies Express endpoints (No-Database demonstration catalog).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "System & Config",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "health"]
+            },
+            "description": "Returns backend operational status, mode, and timestamp."
+          }
+        },
+        {
+          "name": "App Config",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/config",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "config"]
+            },
+            "description": "Fetches client booking rules, seating tiers, fee rates, and demo flags."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Movies",
+      "item": [
+        {
+          "name": "Get All Movies",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/movies",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "movies"]
+            },
+            "description": "List all movies in the catalog."
+          }
+        },
+        {
+          "name": "Filter Movies by Genre",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/movies?genre=Sci-Fi",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "movies"],
+              "query": [
+                {
+                  "key": "genre",
+                  "value": "Sci-Fi"
+                }
+              ]
+            },
+            "description": "Filters movies by specific genre."
+          }
+        },
+        {
+          "name": "Search Movies by Keyword",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/movies?search=Oppenheimer",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "movies"],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "Oppenheimer"
+                }
+              ]
+            },
+            "description": "Search movies by title, synopsis, or actor name."
+          }
+        },
+        {
+          "name": "Get Movie by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/movies/mov-1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "movies", "mov-1"]
+            },
+            "description": "Fetches full metadata for a single movie."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Theaters",
+      "item": [
+        {
+          "name": "Get All Theaters",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/theaters",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "theaters"]
+            },
+            "description": "Returns list of theaters with screens and facilities."
+          }
+        },
+        {
+          "name": "Get Theater by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/theaters/th-1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "theaters", "th-1"]
+            },
+            "description": "Fetches theater details by ID."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Shows & Schedules",
+      "item": [
+        {
+          "name": "Get All Shows",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/shows",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "shows"]
+            },
+            "description": "Fetches scheduled shows."
+          }
+        },
+        {
+          "name": "Filter Shows by Movie ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/shows?movieId=mov-1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "shows"],
+              "query": [
+                {
+                  "key": "movieId",
+                  "value": "mov-1"
+                }
+              ]
+            },
+            "description": "Fetches all show dates and times for a given movie."
+          }
+        },
+        {
+          "name": "Get Show Details with Seat Matrix",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/shows/show-1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "shows", "show-1"]
+            },
+            "description": "Fetches a specific show with row/column layout."
+          }
+        }
+      ]
+    }
+  ]
+}
