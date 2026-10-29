@@ -7,9 +7,9 @@ import { AuthProvider } from './context/AuthContext.jsx';
 import { BookingProvider } from './context/BookingContext.jsx';
 
 import AppNavbar from './components/Navbar.jsx';
-import Footer from './components/Footer.jsx';
-import DemoBanner from './components/DemoBanner.jsx';
-import ProtectedRoute from './components/ProtectedRoute.jsx';
+import Footer from './components/Footer.jsx'
+import DemoBanner from './components/DemoBanner.jsx'
+import ProtectedRoute from './components/ProtectedRoute.jsx'
 import AdminRoute from './components/AdminRoute.jsx';
 
 import Home from './pages/Home.jsx';

@@ -32,7 +32,7 @@ export const movieApi = {
           m.title.toLowerCase().includes(q) ||
           m.synopsis.toLowerCase().includes(q) ||
           (m.cast && m.cast.some(c => c.toLowerCase().includes(q)))
-        );
+        )
       }
       if (params.genre && params.genre !== 'All') {
         local = local.filter(m => m.genres && m.genres.some(g => g.toLowerCase() === params.genre.toLowerCase()));
