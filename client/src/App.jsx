@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles/custom.css';
+import './styles/custom.css'
 
 import { AuthProvider } from './context/AuthContext.jsx';
 import { BookingProvider } from './context/BookingContext.jsx';
