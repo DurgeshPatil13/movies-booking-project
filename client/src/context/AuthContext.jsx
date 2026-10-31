@@ -24,14 +24,14 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     const loggedUser = loginUser(email, password);
-    setUser(loggedUser);
-    return loggedUser;
-  };
+    setUser(loggedUser)
+    return loggedUser
+  }
 
   const register = async (userData) => {
     const newUser = registerUser(userData);
     setUser(newUser);
-    return newUser;
+    return newUser
   };
 
   const logout = () => {
