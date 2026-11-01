@@ -1,6 +1,6 @@
 export const initialMovies = [
   {
-    id: "mov-1",
+    id: "mov-1"
     title: "Dune: Part Two",
     tagline: "Long live the fighters.",
     synopsis: "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, he endeavors to prevent a terrible future only he can foresee.",

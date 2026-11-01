@@ -8,8 +8,8 @@ export const validateParamId = (paramName = 'id') => {
       return res.status(400).json({
         success: false,
         message: `Invalid or missing parameter: :${paramName}`
-      });
+      })
     }
-    next();
+    next()
   };
 };
