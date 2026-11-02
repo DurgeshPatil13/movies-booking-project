@@ -5,9 +5,9 @@ import {
   cancelBooking,
   getUserBookings,
   getStoredBookings
-} from '../services/storage.js';
+} from '../services/storage.js'
 
-const BookingContext = createContext(null);
+const BookingContext = createContext(null)
 
 export const BookingProvider = ({ children }) => {
   const [selectedMovie, setSelectedMovie] = useState(null);

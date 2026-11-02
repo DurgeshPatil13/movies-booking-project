@@ -7,7 +7,7 @@ export const initialMovies = [
     genres: ["Sci-Fi", "Action", "Adventure"],
     language: "English",
     duration: 166,
-    rating: 8.7,
+    rating: 8.7
     votes: 480200,
     certificate: "PG-13",
     releaseDate: "2024-03-01",
