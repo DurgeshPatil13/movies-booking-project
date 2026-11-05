@@ -35,17 +35,17 @@ export const movieApi = {
         )
       }
       if (params.genre && params.genre !== 'All') {
-        local = local.filter(m => m.genres && m.genres.some(g => g.toLowerCase() === params.genre.toLowerCase()));
+        local = local.filter(m => m.genres && m.genres.some(g => g.toLowerCase() === params.genre.toLowerCase()))
       }
       if (params.language && params.language !== 'All') {
-        local = local.filter(m => m.language && m.language.toLowerCase() === params.language.toLowerCase());
+        local = local.filter(m => m.language && m.language.toLowerCase() === params.language.toLowerCase())
       }
       if (params.status === 'now-showing') {
         local = local.filter(m => m.isNowShowing);
       } else if (params.status === 'upcoming') {
         local = local.filter(m => m.isUpcoming);
       }
-      return local;
+      return local
     }
   },
 
@@ -53,12 +53,12 @@ export const movieApi = {
   getMovieById: async (id) => {
     try {
       const response = await apiClient.get(`/movies/${id}`);
-      return response.data.data;
+      return response.data.data
     } catch (err) {
       console.warn(`[API] Fallback for movie ${id}:`, err.message);
       const local = getStoredMovieById(id);
       if (!local) throw new Error('Movie not found');
-      return local;
+      return local
     }
   }
 };
