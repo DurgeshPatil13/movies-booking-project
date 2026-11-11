@@ -14,14 +14,14 @@ const BookingCard = ({ booking, onCancelBooking }) => {
     navigator.clipboard.writeText(booking.bookingReference);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  };
+  }
 
   const confirmCancel = () => {
     setShowCancelModal(false);
     if (onCancelBooking) {
       onCancelBooking(booking.id);
     }
-  };
+  }
 
   return (
     <>
