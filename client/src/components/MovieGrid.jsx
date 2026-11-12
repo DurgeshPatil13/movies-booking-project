@@ -12,7 +12,7 @@ const MovieGrid = ({ movies = [], loading = false, emptyMessage = "No movies fou
         </div>
         <p className="small">Loading movie catalog...</p>
       </div>
-    );
+    )
   }
 
   if (movies.length === 0) {

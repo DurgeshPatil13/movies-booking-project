@@ -8,7 +8,7 @@ const STORAGE_KEYS = {
   BOOKINGS: 'imovies_bookings_v1',
   USERS: 'imovies_users_v1',
   CURRENT_USER: 'imovies_current_user_v1'
-};
+}
 
 // Safe JSON parser
 const safeParse = (key, fallback) => {
